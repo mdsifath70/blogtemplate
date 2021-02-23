@@ -1,0 +1,559 @@
+/* fonts link */
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif:wght@400;700&display=swap');
+
+@font-face {
+	font-family: "proximaNova";
+	src: url("fonts/proxima/ProximaNovaLight.woff") format("woff"),
+		 url("fonts/proxima/ProximaNovaLight.otf") format("OpenType"),
+		 url("fonts/proxima/ProximaNovaBold.otf") format("OpenType"),
+		 url("fonts/proxima/ProximaNovaBold.woff") format("woff");
+	font-weight: 400, 700;
+}
+
+/*
+==============================
+default css
+==============================
+*/
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+body,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+	padding: 0;
+}
+
+input {
+	outline: 0;
+}
+
+a {
+	text-decoration: none;
+	transition: .3s ease;
+}
+
+body {
+	font-family: var(--fontFamily1);
+	font-size: 18px;
+	overflow-x: hidden;
+}
+
+:root {
+	--sliderArrowColor: #5d5d5d;
+	--textColor1: #b2b2b2;
+	--textColor2: #1a54e7;
+	--textColor3: #fff;
+	--textColor4: #b0b0b0;
+	--fontFamily1: 'PT Sans', sans-serif;
+	--fontFamily2: 'PT Serif', serif;
+	--fontFamily3: 'proximaNova';
+	--bgBtn1: #d90445;
+	--bgColor1: #f6f6f6;
+}
+
+/*
+==============================
+common css
+==============================
+*/
+
+::-webkit-scrollbar{
+	width: 8px;
+}
+
+::-webkit-scrollbar-track{
+  background: var(--textColor1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+  background: var(--textColor2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: var(--bgBtn1);
+}
+
+.container {
+	width: 1200px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col-33 {
+	flex: 0 0 33.3333333333%;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.col-50 {
+	flex: 0 0 50%;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.col-100 {
+	flex: 0 0 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.img-fluid {
+	max-width: 100%;
+	height: auto;
+}
+
+/*
+==============================
+header area css
+==============================
+*/
+
+nav.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.nav-left {
+	display: flex;
+}
+
+.nav-brand {
+    height: 70px;
+    position: relative;
+}
+
+.nav-brand::before {
+    content: '';
+    background: var(--textColor2);
+    position: absolute;
+    top: 0;
+    left: -99999px;
+    right: 99%;
+    bottom: 0;
+}
+
+.nav-menu-left {
+	display: flex;
+	align-items: center;
+}
+
+.search-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--textColor1);
+    background: var(--bgColor1);
+    width: 60px;
+    height: 70px;
+}
+
+.search-btn:hover,
+.nav-menu-left ul li a:hover {
+	color: #222;
+}
+
+.nav-menu-left ul,
+.nav-menu-right ul {
+	display: flex;
+}
+
+.nav-menu-left ul {
+	align-items: center;
+}
+
+.nav-menu-left ul li,
+.nav-menu-right ul li {
+	list-style: none;
+}
+
+.nav-menu-left ul li a {
+	color: var(--textColor1);
+	padding: 0 15px;
+}
+
+.menuHambargur1 {
+	display: none;
+	margin-left: 15px;
+	position: absolute;
+	top: 3.5%;
+    right: 5%;
+    cursor: pointer;
+}
+
+.menuHambargur2 {
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.menuHambargur1 a.menuOpen i,
+.menuHambargur2 a.menuOpen i {
+	transition: .5s ease;
+	transform: rotate(360deg);
+}
+
+.nav-menu-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu-right ul li {
+	padding: 0 15px;
+}
+
+.nav-menu-right ul li a,
+.menuHambargur1 a,
+.menuHambargur2 a {
+	color: var(--textColor2);
+	position: relative;
+}
+
+.nav-menu-right ul li a:hover::after {
+	transform: scaleX(1);
+}
+
+.nav-menu-right ul li a::after {
+	content: '';
+	width: 100%;
+	height: 3px;
+	background: var(--textColor2);
+	position: absolute;
+	left: 0;
+	bottom: -23.5px;
+	transition: .3s ease;
+	transform: scaleX(0);
+	transform-origin: left;
+}
+
+/*
+==============================
+hero area css
+==============================
+*/
+
+section.hero {
+	background-image: url('../img/header/banner.jpg');
+	background-size: cover;
+	position: relative;
+	z-index: 5;
+}
+
+.hero .slider-arrow {
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	transform: translateY(-50%);
+	z-index: -1;
+}
+
+.hero .slider-arrow-left,
+.hero .slider-arrow-right {
+	display: inline-flex;
+    align-items: center;
+    justify-content: center;
+	color: var(--sliderArrowColor);
+	background: var(--textColor3);
+	width: 58px;
+    height: 58px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.slick-slide {
+    outline: none
+}
+
+.hero-inner {
+	text-align: center;
+	    padding: 219px 0 250px;
+}
+
+.hero-inner .profile img {
+	border-radius: 50%;
+	pointer-events: none;
+	margin: auto;
+	max-height: 135px;
+}
+
+.hero-inner .profile-desc h1 {
+	color: var(--textColor3);
+	font-family: var(--fontFamily2);
+	font-size: 48px;
+	margin-top: 40px;
+}
+
+.hero-bottom {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;	
+	padding-bottom: 40px;
+}
+
+.hero-bottom .people a {
+	display: inline-block;
+	color: var(--textColor3);
+	background: var(--textColor2);
+	font-weight: 700;
+	padding: 13px 20px;
+	margin-right: 15px;
+}
+
+.hero-bottom .people a:hover,
+.offer-btn a:hover {
+	background: var(--textColor3) !important;
+	color: var(--textColor2) !important;
+}
+
+.p-time,
+.p-time-box {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.p-time p,
+.p-time-box p {
+	position: relative;
+	color: var(--textColor3);
+	padding-right: 6px;
+	cursor: default;
+}
+
+.p-time p::after,
+.p-time-box p::after {
+	content: '';
+	width: 1px;
+	height: 100%;
+	background: var(--textColor3);
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.p-time a,
+.p-time-box a {
+	color: var(--textColor2);
+	padding-left: 8px;
+	text-decoration: underline;
+}
+
+.p-time a:hover {
+	color: var(--textColor3);
+}
+
+.single-b-top {
+	position: relative;
+}
+
+/*
+==============================
+service area css
+==============================
+*/
+
+.change-bg {
+	background: var(--bgColor1);
+	padding: 10px 0 50px;
+}
+
+.service-single-box {
+	margin: 30px 0;
+}
+
+.offer-btn {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+}
+
+.offer-btn a {
+    display: inline-block;
+    padding: 13px 20px;
+    background: var(--bgBtn1);
+    color: var(--textColor3);
+    font-weight: 700;
+}
+
+.offer-btn.a a {
+	background: #000;
+}
+
+.offer-btn.b a {
+	background: #58b600;
+}
+
+.offer-btn.c a {
+	background: #1a54e7;
+}
+
+.offer-btn.d a {
+	background: #8200b2;
+}
+
+.service-single-box .box-desc h2 {
+	font-size: 24px;
+	font-family: var(--fontFamily2);
+	padding: 25px 0 18px;
+}
+
+.service-single-box .p-time-box p,
+.service-single-box .p-time-box a:hover {
+	color: var(--textColor4);
+}
+
+.service-single-box .p-time-box p::after {
+	background: var(--textColor4);
+}
+
+/* big product */
+
+.service-single-box.big {
+	position: relative;
+}
+
+.service-single-box.big .box-image {
+	pointer-events: none;
+}
+
+.service-single-box.big .middle-article {
+	width: 100%;
+	color: var(--textColor3);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.service-single-box.big .middle-article .box-desc h2 {
+	font-size: 48px;
+	padding: 30px 0 0;
+}
+
+.service-single-box.big .p-time-box {
+	position: absolute;
+	right: 35px;
+	bottom: 40px;
+}
+
+.service-single-box .box-desc.small h2 {
+	font-size: 18px;
+}
+
+/*
+==============================
+newsletter area css
+==============================
+*/
+
+.newsletter {
+	background: url('../img/footer/bg.jpg') center / cover;
+	text-align: center;
+	padding: 100px 0 140px;
+}
+
+.newsletter .news-title h1 {
+	font-family: var(--fontFamily2);
+	color: var(--textColor3);
+	font-size: 48px;
+}
+
+.newsletter .news-title h3 {
+	color: #8baeff;
+	font-size: 24px;
+	font-weight: normal;
+	margin-bottom: 45px;
+}
+
+.newsletter .input-form .news-input {
+	position: relative;
+	width: 400px;
+	margin: auto;
+}
+
+.newsletter .input-form .news-input input {
+	height: 50px;
+	border-radius: 50px;
+	border: none;
+}
+
+.newsletter .input-form .news-input input[type='email'] {
+	width: 100%;
+	background: #2c6cff;
+	color: var(--textColor3);
+	font-size: 18px;
+	padding: 0 160px 0 30px;
+}
+
+.newsletter .input-form .news-input input[type='submit'] {
+	color: var(--textColor2);
+	font-size: 18px;
+	font-weight: 700;
+	padding: 15px 35px;
+	cursor: pointer;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.newsletter .input-form .news-input input[type='submit']:hover {
+	background:	transparent;
+	color: var(--textColor3);
+	border: 1px solid var(--textColor3);
+}
+
+.newsletter .input-form .news-input input[type='submit']:active {
+	background: rgba(255, 255, 255, .2);
+}
+
+/*
+==============================
+footer area css
+==============================
+*/
+
+.footer .footer-desc {
+	font-family: var(--fontFamily3);
+	padding: 80px 0 200px; 
+}
+
+.footer .footer-desc p {
+	text-align: center;
+	color: #a7acbc;
+}
+
+/* ----------------------------------- */
+
+/*
+==============================
+			the end
+==============================
+*/
+
